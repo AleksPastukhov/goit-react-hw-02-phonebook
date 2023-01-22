@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Div, Input, Span } from './Filter.styled';
 
 class Filter extends Component {
   handleInput = e => {
@@ -7,15 +8,17 @@ class Filter extends Component {
 
   render() {
     return (
-      <label>
-        Find contacts by name
-        <input
-          type="text"
-          name="filter"
-          value={this.props.filter}
-          onChange={this.handleInput}
-        />
-      </label>
+      <Div>
+        <label>
+          <Span>Find contacts by name</Span>
+          <Input
+            type="text"
+            name="filter"
+            value={this.props.filter}
+            onChange={this.handleInput}
+          />
+        </label>
+      </Div>
     );
   }
 }

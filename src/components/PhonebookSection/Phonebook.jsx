@@ -1,6 +1,7 @@
-import Form from '../Form';
+import ContactForm from '../ContactForm';
 import ContactsList from '../ContactsList';
 import Filter from '../Filter';
+import { Section, Title, Subtitle, Container } from './PhonebookSection.styled';
 
 function PhonebookSection({
   mainTitle,
@@ -13,17 +14,19 @@ function PhonebookSection({
 }) {
   return (
     <>
-      <h1>{mainTitle}</h1>
-      <section>
-        <Form onSubmit={onSubmit} />
-        <h2>{title}</h2>
-        <Filter filter={filter} onChange={onChange} />
-        <ContactsList
-          contactsSet={contactsSet}
-          filter={filter}
-          onDeleteContact={onDeleteContact}
-        />
-      </section>
+      <Title>{mainTitle}</Title>
+      <Section>
+        <ContactForm onSubmit={onSubmit} />
+        <Container>
+          <Subtitle>{title}</Subtitle>
+          <Filter filter={filter} onChange={onChange} />
+          <ContactsList
+            contactsSet={contactsSet}
+            filter={filter}
+            onDeleteContact={onDeleteContact}
+          />
+        </Container>
+      </Section>
     </>
   );
 }

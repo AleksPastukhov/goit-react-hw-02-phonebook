@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import PhonebookSection from './PhonebookSection';
+import PhonebookSection from '../PhonebookSection';
+import { Wrapper } from './App.styled';
 
 class App extends Component {
   state = {
@@ -48,15 +49,17 @@ class App extends Component {
   render() {
     const { contacts, filter } = this.state;
     return (
-      <PhonebookSection
-        mainTitle="Phonbook"
-        title="Contacts"
-        contactsSet={contacts}
-        onSubmit={this.formSubmitHendler}
-        onChange={this.handleChange}
-        filter={filter}
-        onDeleteContact={this.deleteContact}
-      />
+      <Wrapper>
+        <PhonebookSection
+          mainTitle="Phonebook"
+          title="Contacts"
+          contactsSet={contacts}
+          onSubmit={this.formSubmitHendler}
+          onChange={this.handleChange}
+          filter={filter}
+          onDeleteContact={this.deleteContact}
+        />
+      </Wrapper>
     );
   }
 }

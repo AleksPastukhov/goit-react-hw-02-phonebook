@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Label, Button, Form, Input, Span } from './ContactForm.stuled';
 
-class Form extends Component {
+class ContactForm extends Component {
   state = {
     name: '',
     number: '',
@@ -30,10 +31,10 @@ class Form extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
+      <Form onSubmit={this.handleSubmit}>
+        <Label>
+          <Span>Name</Span>
+          <Input
             type="text"
             name="name"
             value={name}
@@ -42,10 +43,10 @@ class Form extends Component {
             required
             onChange={this.handleChange}
           />
-        </label>
-        <label>
-          Number
-          <input
+        </Label>
+        <Label>
+          <Span>Number</Span>
+          <Input
             type="tel"
             name="number"
             value={number}
@@ -54,11 +55,11 @@ class Form extends Component {
             required
             onChange={this.handleChange}
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </Label>
+        <Button type="submit">Add contact</Button>
+      </Form>
     );
   }
 }
 
-export default Form;
+export default ContactForm;
