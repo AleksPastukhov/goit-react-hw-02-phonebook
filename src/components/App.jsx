@@ -13,6 +13,18 @@ class App extends Component {
     filter: '',
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
+  handleChange = request => {
+    this.setState({
+      filter: request,
+    });
+  };
+
   createContact = (name, number) => {
     return {
       id: nanoid(4),
@@ -22,18 +34,28 @@ class App extends Component {
   };
 
   formSubmitHendler = ({ name, number }) => {
+    for (let contact of this.state.contacts) {
+      if (contact.name === name) {
+        alert(`${name} is already in contacts`);
+        return;
+      }
+    }
     this.setState(({ contacts }) => ({
       contacts: [...contacts, this.createContact(name, number)],
     }));
   };
 
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <PhonebookSection
-        title="Phonbook"
+        mainTitle="Phonbook"
+        title="Contacts"
         contactsSet={contacts}
         onSubmit={this.formSubmitHendler}
+        onChange={this.handleChange}
+        filter={filter}
+        onDeleteContact={this.deleteContact}
       />
     );
   }

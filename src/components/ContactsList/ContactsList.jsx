@@ -1,18 +1,17 @@
-function ContactsList({ title, contactsSet = [] }) {
+import ContactItem from '../ContactItem';
+
+function ContactsList({ filter, contactsSet, onDeleteContact }) {
   return (
     <>
-      <h2>{title}</h2>
       <ul>
-        {contactsSet.map(({ id, name, number }) => {
-          return (
-            <li key={id}>
-              <span>{name}: </span>
-              <span>{number}</span>
-            </li>
-          );
-        })}
+        <ContactItem
+          contactsSet={contactsSet}
+          filter={filter}
+          onDeleteContact={onDeleteContact}
+        />
       </ul>
     </>
   );
 }
+
 export default ContactsList;
