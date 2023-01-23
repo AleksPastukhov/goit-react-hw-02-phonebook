@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ContactForm from '../ContactForm';
 import ContactsList from '../ContactsList';
 import Filter from '../Filter';

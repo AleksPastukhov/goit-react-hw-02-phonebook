@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import PhonebookSection from '../PhonebookSection';
 import { Wrapper } from './App.styled';
 

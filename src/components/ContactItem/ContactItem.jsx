@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Item, Button } from './ContactItem.styled';
 
 function ContactItem({ onDeleteContact, contactsSet = [], filter }) {

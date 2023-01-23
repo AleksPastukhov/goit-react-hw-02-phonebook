@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Label, Button, Form, Input, Span } from './ContactForm.stuled';
 
 class ContactForm extends Component {
