@@ -16,4 +16,16 @@ function ContactsList({ filter, contactsSet, onDeleteContact }) {
   );
 }
 
+ContactsList.propTypes = {
+  onDeleteContact: PropTypes.func.isRequired,
+  contactsSet: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  filter: PropTypes.string.isRequired,
+};
+
 export default ContactsList;
