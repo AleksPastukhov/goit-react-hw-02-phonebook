@@ -27,6 +27,7 @@ export const Subtitle = styled.h2`
 `;
 
 export const Container = styled.div`
+  min-width: 430px;
   box-shadow: ${p => p.theme.sectionShadow};
   padding: 10px;
   border-radius: 10px;

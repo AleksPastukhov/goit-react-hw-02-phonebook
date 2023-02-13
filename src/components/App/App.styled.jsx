@@ -7,4 +7,8 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: ${p => p.theme.insideShadow};
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
