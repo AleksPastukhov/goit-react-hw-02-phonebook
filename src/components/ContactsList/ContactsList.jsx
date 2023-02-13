@@ -2,15 +2,22 @@ import PropTypes from 'prop-types';
 import ContactItem from '../ContactItem';
 import { List } from './ContactsList.styled';
 
-function ContactsList({ filter, contactsSet, onDeleteContact }) {
+function ContactsList({ filter, contactsSet = [], onDeleteContact }) {
   return (
     <>
       <List>
-        <ContactItem
-          contactsSet={contactsSet}
-          filter={filter}
-          onDeleteContact={onDeleteContact}
-        />
+        {contactsSet
+          .filter(({ name }) =>
+            name.toLowerCase().includes(filter.toLowerCase())
+          )
+          .map(({ id, name, number }) => (
+            <ContactItem
+              id={id}
+              name={name}
+              number={number}
+              onDeleteContact={onDeleteContact}
+            />
+          ))}
       </List>
     </>
   );
@@ -23,8 +30,8 @@ ContactsList.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
-    })
-  ),
+    }).isRequired
+  ).isRequired,
   filter: PropTypes.string.isRequired,
 };
 
