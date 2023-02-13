@@ -10,3 +10,14 @@ export const List = styled.ul`
 export const Span = styled.span`
   font-weight: 500;
 `;
+
+export const Item = styled.li`
+  color: ${p => p.theme.colors.white};
+  font-weight: 700;
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+`;

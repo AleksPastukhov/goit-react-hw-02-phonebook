@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import ContactItem from '../ContactItem';
-import { List } from './ContactsList.styled';
+import { List, Item } from './ContactsList.styled';
 
 function ContactsList({ filter, contactsSet = [], onDeleteContact }) {
   return (
@@ -11,12 +11,14 @@ function ContactsList({ filter, contactsSet = [], onDeleteContact }) {
             name.toLowerCase().includes(filter.toLowerCase())
           )
           .map(({ id, name, number }) => (
-            <ContactItem
-              id={id}
-              name={name}
-              number={number}
-              onDeleteContact={onDeleteContact}
-            />
+            <Item key={id}>
+              <ContactItem
+                id={id}
+                name={name}
+                number={number}
+                onDeleteContact={onDeleteContact}
+              />
+            </Item>
           ))}
       </List>
     </>

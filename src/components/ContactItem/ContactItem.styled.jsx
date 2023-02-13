@@ -1,16 +1,5 @@
 import styled from '@emotion/styled';
 
-export const Item = styled.li`
-  color: ${p => p.theme.colors.white};
-  font-weight: 700;
-  font-style: italic;
-  display: flex;
-  justify-content: space-between;
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
-`;
-
 export const Button = styled.button`
   color: ${p => p.theme.colors.btnСolorText};
   background-color: ${p => p.theme.colors.colorElement};
